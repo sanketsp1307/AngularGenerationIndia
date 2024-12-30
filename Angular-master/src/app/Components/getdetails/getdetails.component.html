@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+  <div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+      <h1>Donor Details</h1>
+      <p class="text-muted">Manage donor information effectively.</p>
+    </div>
+
+    <!-- Donor Information Form -->
+    <div class="card mb-4 text-center" style="height: 150px; width: 300px; margin-left: 520px;">
+      <div class="card-header bg-primary text-white text-center">
+        All Donor Details
+      </div>
+      <div class="card-body text-center">
+        <form id="donorForm">
+          
+          <!-- <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Donor Id</label>
+              <input type="text" #id  id="id" class="form-control" placeholder="Enter donor id number" required>
+            </div>
+            <div class="col-md-6">
+              <label for="bloodType" class="form-label">Blood Type</label>
+              <select id="bloodType" class="form-select" required>
+                <option value="" disabled selected>Select blood type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
+            </div>
+          </div> -->
+          <button type="submit" class="btn btn-primary" (click)="getUsers()">Get Details</button>
+        </form>
+      </div>
+    </div>
+    
+    
+    <!-- Donor List Table -->
+    <div class="card">
+      <div class="card-header bg-secondary text-white">
+        Donor List
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+             
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Blood Type</th>
+              <th>Blood Unit</th>
+              <th>Address</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+
+          @for (user of getList;track user.donorId) {
+            <tbody id="donorTableBody"  *ngIf="current == 'Get Details'">
+              <tr>
+                    <td>{{user.donorId}}</td>
+                    <td>{{user.donorName}}</td>
+                    <td>{{user.donorEmailId}}</td>
+                    <td>{{user.donorMobileNo}}</td>
+                    <td>{{user.donorBloodGroup}}</td>
+                    <td>{{user.donorBloodUnit}}</td>
+                    <td>{{user.donorAddress}}</td>
+                    <td>{{user.donorGender}}</td>
+
+              </tr>
+              <!-- Donor rows will be dynamically added here -->
+            </tbody>
+          }
+          
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+

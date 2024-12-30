@@ -1,0 +1,24 @@
+
+
+  <div class="container mt-5 w-70" style="width: 500px; font-weight: bold;">
+    <div class="card-header bg-primary text-white text-center" style="height: 40px; align-content: center; margin-bottom: 20px;">
+      Contact Us
+    </div>
+    <form [formGroup]="form" >
+      <div class="mb-3 " style="text-align: left;">
+        <label for="name" class="form-label " style="text-align: left;">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter your name" required>
+      </div>
+      <div class="mb-3" style="text-align: left;">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email" required>
+      </div> 
+      <div class="mb-3" style="text-align: left;">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control w-100" id="message" rows="4" formControlName="message" placeholder="Write your message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-60" (click)="sendFeedback()">Submit Query</button>
+    </form>
+  </div>
+
+ 

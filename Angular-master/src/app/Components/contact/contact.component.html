@@ -1,0 +1,14 @@
+<app-mainnavbar></app-mainnavbar>
+    <div class="col3 text-center " style="margin-top: 50px;"  >
+        <button type="submit"  class="btn btn-success" (click)="change('Existing User')" >Existing User</button>
+        <button type="submit" class="btn btn-success" (click)="change('New User')">New User</button>
+    </div>
+    
+
+
+    <div class="row text-center" *ngIf="current == 'Existing User'">
+        <app-contact-us></app-contact-us>
+    </div>
+    <div class="row text-center" *ngIf="current == 'New User'">
+        <app-sign-up></app-sign-up>
+    </div>

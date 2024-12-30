@@ -1,0 +1,83 @@
+<app-mainnavbar></app-mainnavbar>
+<div class="container">
+  <div class="row"><img src="" id="imageAsBackground" alt="" /></div>
+  <div class="row align-items-center justify-content-center" style="height:100vh;">
+    <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-icon">
+            <div class="icon-holder">
+              <i class="fa-2x fa-solid fa-user-plus text-light" style="margin-top: 5px;"></i>
+            </div>
+          </div>
+          <h3 class="text-center">REGISTER</h3>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="registerForm">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" formControlName="userName" id="userInput" placeholder="Input your Username" autocomplete="off" name="userName" required>
+              <label for="userInput">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="emailInput" formControlName="emailId" placeholder="Input your email" autocomplete="off" name="emailId" required>
+              <label for="emailInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="nameInput" formControlName="name" placeholder="Input your Name" autocomplete="off" name="name" required>
+              <label for="nameInput">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="passwordInput" formControlName="password" name="password" placeholder="Input your password" required>
+              <label for="passwordInput">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="cpasswordInput" name="cpassword" formControlName="cpassword" placeholder="Input your password" required>
+              <label for="cpasswordInput">Confirm Password</label>
+            </div>
+
+            <div class="text-center mb-5">
+              <button class="btn btn-outline-primary" type="submit">REGISTER</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-sm btn-primary radius" data-bs-toggle="modal" data-bs-target="#staticBackdrop">See List of Accounts</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="staticBackdrop">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">List of registered accounts</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="table-responsive">
+          <table id="accountTable" class="table table-striped" style="width:100%">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Password</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="registerForm.get('cpassword')?.hasError('passwordMismatch')">
+  Passwords do not match.
+</div>
